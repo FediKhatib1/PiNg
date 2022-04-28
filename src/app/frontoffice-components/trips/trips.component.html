@@ -1,0 +1,98 @@
+<app-header></app-header>
+<h2>home</h2>
+<h3>Add Trips</h3>
+<button class="btn btn-primary" (click)="showForm()"> Add Trip</button>
+<button class="btn btn-danger float-right" (click)="hideForm()"> Cancel</button>
+<form #f="ngForm" [hidden]="hidden">
+ 
+    <div>
+        <label>Object</label>
+        <input #title="ngModel" type="text" name="title" class="form-control" [(ngModel)]="trip.object" required
+            minlength="3" pattern="^[a-zA-Z]+$">
+    </div>
+    <div class=" alert-danger" *ngIf="title.invalid && title.touched">
+        <div *ngIf="title.errors?.['required']">Title is required</div>
+        <div *ngIf="title.errors?.['minlength']">minlength 3</div>
+        <div *ngIf="title.errors?.['pattern']">error pattern</div>
+    </div>
+
+   
+    <div>
+        <label>Date</label>
+        <input #price="ngModel" type="date" name="price" class="form-control" [(ngModel)]="trip.departureDate" required>
+    </div>
+     
+    <div>
+        <label>ARRIVAL DATE</label>
+        <input #price="ngModel" type="date" name="price" class="form-control" [(ngModel)]="trip.arrivalDate" required>
+    </div>
+     
+    <div>
+        <label>Destination</label>
+        <input #price="ngModel" type="text" name="price" class="form-control" [(ngModel)]="trip.destination" required>
+    </div>
+    <div>
+        <label>Program</label>
+        <input #price="ngModel" type="text" name="price" class="form-control" [(ngModel)]="trip.program" required>
+    </div>
+   
+   
+    <button class="btn btn-success" (click)="addtrip(trip)" [disabled]="f.invalid
+    ">Add trip</button>
+</form>
+<hr>
+<h3>Listtrip</h3>
+<div class="row">
+    <div class="col-md-4" *ngFor="let trip of triplist , let i = index ">
+       
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{image}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Title :{{trip.destination}}</h5>
+                    <p class="card-text">Price :{{trip.idTrip}}</p>
+                    
+                  
+                  
+                    
+                    <button class="btn btn-danger" (click)="deletetrip(trip)">
+                        Delete</button>
+                    <!-- <button class="btn btn-danger" (click)="deletetripId(trip.id)" >
+                            Delete</button> -->
+                    <a routerLink="{{trip.idTrip}}">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<div>
+   
+    <form>
+        <input class="form-control" type="number" name="nbMax" [(ngModel)]="nombreMax">
+    </form>
+</div>
+
+<!-- <table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Price</th>  
+        <th>Quantity</th>
+        <th>Like</th>
+    </thead>
+    
+    <tbody *ngFor="let trip of tripList 
+    , let i = index">
+        <tr *ngIf="nombreMax>=trip.price || nombreMax == null">
+            <td>{{trip.id}}</td>
+            <td>{{trip.title}}</td>
+            <td>{{trip.price}}</td>
+            <td>{{trip.quantity}}</td>
+            <td>{{trip.like}}
+                <button (click)="IncrementLike(i)" class="btn btn-primary">Like</button>
+            </td>
+            <td> 
+                <button class="btn btn-danger" (click)="buytrip(trip)"
+                [disabled] = "trip.quantity == 0">
+                    Buy</button></td>
+        </tr>
+    </tbody>
+</table>  -->

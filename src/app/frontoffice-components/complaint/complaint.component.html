@@ -1,0 +1,76 @@
+<app-header></app-header>
+
+
+<div class="container-fluid">
+
+  <div class="row justify-content-center">
+    <div class="form-group col-md-4 col-md-offset-5 align-center ">
+
+      <br>
+
+      <br>
+      <br>
+
+<form #f="ngForm" >
+
+  <div>
+    <label>Email</label>
+    <input #title="ngModel" type="text" name="title" class="form-control" [(ngModel)]="reclam.email"
+           placeholder="{{loggedInUser?.email}}" readonly >
+
+  </div>
+
+  <div class=" alert-danger" *ngIf="title.invalid && title.touched">
+    <div *ngIf="title.errors?.['required']">Title is required</div>
+    <div *ngIf="title.errors?.['minlength']">minlength 3</div>
+    <div *ngIf="title.errors?.['pattern']">error pattern</div>
+  </div>
+
+
+
+  <div>
+    <label>Type</label>
+    <input #type="ngModel" type="number" name="type" class="form-control" [(ngModel)]="reclam.type"
+           required >
+  </div>
+  <div class=" alert-danger" *ngIf="type.invalid && type.touched">
+    <div *ngIf="type.errors?.['required']"> Type is required</div>
+
+  </div>
+  <div>
+    <label>object</label>
+    <input #object="ngModel" type="text" name="object" class="form-control" [(ngModel)]="reclam.object" required>
+  </div>
+
+  <div>
+    <label>message</label>
+    <input  #message="ngModel" type="text" name="message" class="form-control" [(ngModel)]="reclam.message" required>
+  </div>
+
+  <div class=" alert-danger" *ngIf="object.invalid && object.touched">
+    <div *ngIf="object.errors?.['required']"> Object is required</div>
+  </div>
+
+  <div class=" alert-danger" *ngIf="message.invalid && message.touched">
+    <div *ngIf="message.errors?.['required']"> Message is required</div>
+  </div>
+
+<br>
+  <!-- <div [hidden]="captcha"> !!!!!
+   <re-captcha (resolved)="resolved($event)" siteKey="6Lc4makfAAAAABR_Q80IZemAqL-lxQbX-6H6bQR0"> required </re-captcha>
+ </div>
+ <div [hidden]="!captcha">
+ </div>
+-->
+<br>
+ <br>
+ <button  (click)="router.navigate(['/allr']);"  class="btn btn-success" (click)="addReclamation(reclam)" [disabled]="f.invalid"  > Send </button>
+</form>
+   </div>
+ </div>
+</div>
+
+
+
+
+
