@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {Trip} from '../model/Trip';
+import {User} from '../model/user';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 @Injectable({
@@ -21,6 +22,10 @@ export class TripService {
 
   getDialogData() {
     return this.dialogData;
+  }
+
+  getalluser(){
+    return this.httpClient.get<User>('http://localhost:8080/trip/getallusers')
   }
 
   /** CRUD METHODS */
@@ -50,8 +55,8 @@ export class TripService {
   }
 
    // ADD, POST METHOD
-   addProduct(trip: Trip): void {
-    this.httpClient.post('http://localhost:8080/trip/addTrip/1', trip).subscribe(data => {
+   addProduct(trip: Trip,id : number): void {
+    this.httpClient.post('http://localhost:8080/trip/addTrip'+ '/'+id, trip).subscribe(data => {
       this.dialogData = trip;
      
       },
@@ -59,6 +64,18 @@ export class TripService {
     
     });
    }
+
+
+   deleteItem(id: number): void {
+    this.httpClient.delete('http://localhost:8080/trip/deleteTrip/' + id).subscribe(data => {
+      console.log(data['']);
+        
+      },
+      (err: HttpErrorResponse) => {
+       
+      }
+    );
+  }
 }
 
 

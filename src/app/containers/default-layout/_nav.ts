@@ -11,20 +11,21 @@ export const navItems: INavData[] = [
     }
   },
   {
-    title: true,
-    name: 'Theme'
-  },
+    name: 'Trips & Events',
+    url: '',
+    iconComponent: { name: 'cil-puzzle' },
+    children: [
   {
-    name: 'Colors',
+    name: 'Trips',
     url: '/theme/colors',
-    iconComponent: { name: 'cil-drop' }
+    iconComponent: { name: 'cil-airplane-mode' }
   },
   {
-    name: 'Typography',
+    name: 'Events',
     url: '/theme/typography',
     linkProps: { fragment: 'someAnchor' },
     iconComponent: { name: 'cil-pencil' }
-  },
+  } ]}  ,
   {
     name: 'Components',
     title: true

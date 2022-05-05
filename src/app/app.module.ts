@@ -12,6 +12,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatSelectModule} from '@angular/material/select';
 import {
   PERFECT_SCROLLBAR_CONFIG,
   PerfectScrollbarConfigInterface,
@@ -55,6 +56,7 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
+
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -105,6 +107,7 @@ const APP_CONTAINERS = [
     MatToolbarModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatSelectModule,
   
     
     

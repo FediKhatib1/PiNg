@@ -8,8 +8,11 @@
     <!--Textarea for demo purposes-->
     <div class="form">
       <mat-form-field color="accent">
-        <textarea matInput #input class="form-control" placeholder="Object" [(ngModel)]="data.object" name="title" required ></textarea>
-        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+        <mat-label>Object</mat-label>
+        <mat-select [(ngModel)]="data.object" name="date">
+          <mat-option value="VISIT"  name="object" > VISIT</mat-option>
+          <mat-option value="SEMENAR"  name="object" > SEMENAR</mat-option>
+        </mat-select>     
       </mat-form-field>
     </div>
     <div class="form">
@@ -20,7 +23,7 @@
     </div>
     <div class="form">
       <mat-form-field color="accent">
-        <textarea matInput #input class="form-control" placeholder="Destination" [(ngModel)]="data.program" name="title" required ></textarea>
+        <textarea matInput #input class="form-control" placeholder="Program" [(ngModel)]="data.program" name="title" required ></textarea>
         <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
     </div>
@@ -28,15 +31,25 @@
     
     <div class="form">
       <mat-form-field color="accent">
-      <input placeholder="departureDate" matInput #input type="date" name="date" id="" [(ngModel)]="data.departureDate" class="form-control">
+      <input placeholder="Departure Date" matInput #input type="date" name="date" id="" [(ngModel)]="data.departureDate" class="form-control">
         <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
     </div>
     <div class="form">
       <mat-form-field color="accent">
-      <input placeholder="arrivalDate" matInput #input type="date" name="date" id="" [(ngModel)]="data.arrivalDate" class="form-control">
+      <input placeholder="Arrival Date" matInput #input type="date" name="date" id="" [(ngModel)]="data.arrivalDate" class="form-control">
         <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
+    </div>
+    <div class="form">
+<mat-form-field color="accent">
+  <mat-label>User Name  </mat-label>
+  <mat-select [(ngModel)]="userid" name="date">
+    <mat-option *ngFor="let user of usersList" [value]="user.id"  name="userid" >
+      {{user.username}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
     </div>
   
     <div mat-dialog-actions>
@@ -47,3 +60,4 @@
    
   </form>
 </div>
+

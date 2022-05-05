@@ -1,7 +1,7 @@
 import {Role} from "../enum/role.enum";
 
 export class User {
-  userId: string;
+  id: string;
   firstName: string;
   lastName: string;
   username: string;
