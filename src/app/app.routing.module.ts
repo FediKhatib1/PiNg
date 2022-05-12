@@ -11,18 +11,12 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './backoffice/layout/dashboard/dashboard.component';
 import { LayoutModule } from './backoffice/layout/layout.module';
 import { Screen1Component } from './backoffice/layout/screen1/screen1.component';
-import { TripfrontComponent } from './frontoffice/tripfront/tripfront.component';
-import { EventfrontComponent } from './frontoffice/eventfront/eventfront.component';
-import { EventdetailsffrontComponent } from './frontoffice/eventdetailsffront/eventdetailsffront.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
     { path: 'user-profile',     component: ProfileComponent },
     { path: 'register',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
-    { path: 'tripfront',          component: TripfrontComponent },
-    { path: 'eventfront',          component: EventfrontComponent },
-    { path: 'eventfront/:id',          component: EventdetailsffrontComponent },
     { path: 'screen1',          component: Screen1Component },
     {
       path: 'admin',

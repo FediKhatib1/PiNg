@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080',
-  publicUrls: ['/user/login', '/register', '/*/profile-image', '/*/profile-image/**']
+  apiUrl: 'http://localhost:8087',
+  publicUrls: ['/user/login', '/user/registerA', '/*/profile-image', '/*/profile-image/**']
 };
 
 /*

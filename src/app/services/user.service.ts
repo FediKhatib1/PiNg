@@ -22,6 +22,9 @@ export class UserService {
   public getAllUsers(): Observable<UserPage> {
     return this.httpClient
       .get<UserPage>(`${this.host}/user?size=2147483647`);
+  }public getAllUs() {
+    return this.httpClient
+      .get<User[]>(`${this.host}/user/list`);
   }
 
   public addUser(formData: FormData): Observable<User> {
@@ -48,10 +51,12 @@ export class UserService {
         });
   }
 
-  public deleteUser(userId: string): Observable<CustomHttpResponse> {
+  public deleteUser(id: number): Observable<CustomHttpResponse> {
     return this.httpClient
-      .delete<CustomHttpResponse>(`${this.host}/user/${userId}`);
+      .delete<CustomHttpResponse>(`${this.host}/user/delete/`+id);
   }
+ 
+  
 
   public addUsersToLocalStorage(users: User[]) {
     this.storage.setItem('users', JSON.stringify(users));

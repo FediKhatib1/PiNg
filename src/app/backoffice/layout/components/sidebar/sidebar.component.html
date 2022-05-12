@@ -1,31 +1,12 @@
 <div id="sidebar">
     <mat-nav-list>
-        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['dashboard']">
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/admin/dashboard']">
             <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Dashboard' | translate }}
         </a>
-        <mat-nav-list dense>
-        
-            <mat-expansion-panel [class.mat-elevation-z0]="true" dense>
-                <mat-expansion-panel-header>
-                    <mat-icon>settings</mat-icon>Trip & Events 
-                </mat-expansion-panel-header>
-                <mat-nav-list dense>
-                    <a mat-list-item [routerLink]="['trip']"><mat-icon>airplanemode_active</mat-icon>Trip Management</a>
-                    <a mat-list-item [routerLink]="['events']"><mat-icon>event</mat-icon>Trips Calednar</a>
-                    <a mat-list-item [routerLink]="['eve']"><mat-icon>public</mat-icon>Events Managemnts</a>
-                    <a mat-list-item [routerLink]="['evecal']"><mat-icon>event</mat-icon>Events Calednar</a>
-                </mat-nav-list>
-            </mat-expansion-panel>
-        </mat-nav-list>
-        
-        <div class="dropdown-container">
-
-            <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['admin/screen1']">
-            <mat-icon class="sidenav-icon">airplanemode_active</mat-icon> {{ 'Screen1' | translate }}
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/admin/screen1']">
+            <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Screen1' | translate }}
         </a>
-        </div>
-        
-        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/screen2']">
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/admin/test']">
             <mat-icon class="sidenav-icon">people</mat-icon> {{ 'Screen2' | translate }}
         </a>
     </mat-nav-list>

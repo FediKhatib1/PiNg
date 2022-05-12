@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing.module';
-
 
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
@@ -33,44 +32,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ChartsModule } from 'ng2-charts';
-
-
-
-import { MatInputModule } from '@angular/material/input';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
-import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
-
-import {MatSelectModule} from '@angular/material/select';
-
-
-import { TripComponent } from './backoffice/trip/trip.component'
-import { AddDialogComponent } from './backoffice/dialogs/add/add.dialog.component';
-import { DeleteDialogComponent } from './backoffice/dialogs/delete/delete.dialog.component';
-import { EditDialogComponent } from './backoffice/dialogs/edit/edit.dialog.component';
-
-import { TripService } from './backoffice/services/tripservice.service';
-import { SnackBarService } from './backoffice/services/snack-bar.service';
-import { MaterialModule } from './backoffice/shared/modules/material/material.module';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StatModule } from './backoffice/shared/modules/stat/stat.module';
-
-import { EventComponent } from './backoffice/event/event.component';
-import { TripfrontComponent } from './frontoffice/tripfront/tripfront.component';
-import { EventService } from './backoffice/services/eventservice.service';
-import { AddeventComponent } from './backoffice/dialogEvent/addevent/addevent.component';
-import { EveComponent } from './backoffice/eve/eve.component';
-import { MarkerService } from './marker.service';
-import { EventcalComponent } from './backoffice/eventcal/eventcal.component';
-import { EventfrontComponent } from './frontoffice/eventfront/eventfront.component';
-import { EventdetailsffrontComponent } from './frontoffice/eventdetailsffront/eventdetailsffront.component';
-import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
-import { QRCodeModule } from 'angularx-qrcode';
 //import { appendFile } from 'fs';
 
 
@@ -85,10 +47,7 @@ export const createTranslateLoader = (http: HttpClient) => {
   );*/
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 };
-FullCalendarModule.registerPlugins([ // register FullCalendar plugins
-  dayGridPlugin,interactionPlugin
- 
-]);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,16 +56,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent,TripComponent,AddDialogComponent,
-    DeleteDialogComponent,
-    EditDialogComponent,
-    AddeventComponent,
-    EventComponent,
-    TripfrontComponent,
-    EveComponent,
-    EventcalComponent,
-    EventfrontComponent,
-    EventdetailsffrontComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -123,33 +73,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     OverlayModule,
     HttpClientModule,
     StatModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    LayoutModule,
-    OverlayModule,
-    HttpClientModule,
-    MaterialModule,
-    MatPaginatorModule,  MatTableModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule,
-    MatSortModule,
-    MatTableModule,
-    MatToolbarModule,
-    MatPaginatorModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-    MatSnackBarModule,
-    FlexLayoutModule,
-    StatModule,
-    ChartsModule,
-    NgxQRCodeModule,
-    QRCodeModule,
-    
-    FullCalendarModule,
     FlexLayoutModule,
     TranslateModule.forRoot({
         loader: {
@@ -159,7 +82,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         }
     })
   ],
-  providers: [AuthenticationGuard, AuthenticationService, UserService,TripService,SnackBarService,EventService,MarkerService,
+  providers: [AuthenticationGuard, AuthenticationService, UserService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]

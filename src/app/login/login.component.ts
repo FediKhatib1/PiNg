@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           if(this.authenticationService.isLoggedUserHasRoleAdmin())
           {this.router.navigateByUrl('/admin');}
           else
-          this.router.navigateByUrl('/admin');
+          this.router.navigateByUrl('/landing');
           this.showLoading = false;
         },
         (errorResponse: HttpErrorResponse) => {
