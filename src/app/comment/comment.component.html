@@ -1,0 +1,22 @@
+<form>
+    <textarea                   
+    [(ngModel)]="comment.content"
+    class="form-control" 
+    id="exampleFormControlTextarea1" 
+    rows="3" 
+    placeholder="Write a large text here ...">
+    </textarea>
+    <br>
+
+
+</form>
+
+<div class="btn-wrapper">
+<div class="col-md-4">
+<button
+class="btn btn-block btn-default"
+type="button" (click)="ajouter();">
+Comment
+</button>
+</div>
+</div>

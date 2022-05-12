@@ -1,0 +1,8 @@
+<div class="container card-body py-5 position-relative border-l-0 border-r-0 " >
+<div class="tab-content" *ngFor="let p of listsComment">
+  {{p.content}}
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="clickMethod(p.id)">  
+  <i class="material-icons">&#xe92b;</i>
+  </button>
+</div>
+</div>

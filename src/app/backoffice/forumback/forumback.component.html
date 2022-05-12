@@ -1,0 +1,17 @@
+ <div class="row-md-4" *ngFor="let post of postList , let i = index ">
+       
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top"  alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Title :{{post.id}}</h5>
+                    <p class="card-text">Content :{{post.content}}</p>
+                    <p class="card-text">Date :{{post.datePost}}</p>
+                    
+                    <button class="btn btn-success">
+                        Edit</button>
+                    <button class="btn btn-danger" >
+                        Delete</button>
+                    <a>Details</a>
+                </div>
+            </div>
+        </div>
