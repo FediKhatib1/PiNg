@@ -26,22 +26,19 @@
             ],
             "assets": [
               "src/favicon.ico",
-              "src/assets",{
-                "glob": "**/*",
-                "input": "node_modules/leaflet/dist/images/",
-                "output": "./assets"
-              }
+              "src/assets"
             ],
             "styles": [
               
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles/styles.scss",
               "src/assets/scss/argon.scss",
-              "./node_modules/leaflet/dist/leaflet.css"
+              "src/assets/css/style.css",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/prettify.css"
             ],
             "scripts": [
-              "node_modules/chart.js/dist/Chart.js"
+              "src/assets/js/custom.js"
             ]
           },
           "configurations": {

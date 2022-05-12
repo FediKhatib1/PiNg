@@ -1,6 +1,8 @@
 import {Role} from "../enum/role.enum";
+import { Profile } from "./profile";
 
 export class User {
+  id : number ;
   userId: string;
   firstName: string;
   lastName: string;
@@ -13,5 +15,5 @@ export class User {
   authorities: string[];
   active: boolean;
   notLocked: boolean;
-  invitation:any
+  profile : Profile ;
 }

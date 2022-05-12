@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Profile } from 'src/app/model/profile';
+import { User } from 'src/app/model/user';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
     selector: 'app-navbar',
@@ -12,7 +16,13 @@ export class NavbarComponent implements OnInit {
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
 
-    constructor(public location: Location, private router: Router) {
+    isLoggedIn : boolean ;
+    idUser : number ; 
+    user : User ;
+    Cnprofile : Profile ;
+    profile : Profile ;
+
+    constructor(public location: Location,private profileService : ProfileService, private authService : AuthenticationService, private router: Router) {
     }
 
     ngOnInit() {
@@ -32,6 +42,21 @@ export class NavbarComponent implements OnInit {
      this.location.subscribe((ev:PopStateEvent) => {
          this.lastPoppedUrl = ev.url;
      });
+      
+     console.log(this.authService.getUserFromLocalStorage()) ;
+     this.isLoggedIn = this.authService.isUserLoggedIn() ;
+     this.idUser = this.authService.getUserFromLocalStorage().id ;
+     console.log(this.authService.getUserFromLocalStorage().id) ;
+   
+     this.getConnectedProfile() ;
+
+    }
+    getConnectedProfile() {
+        this.profileService.connectedProfile(this.idUser).subscribe(data =>{
+            console.log(data)
+            this.profile = data ;
+        }, error => console.error(error)
+        ); 
     }
 
     isHome() {

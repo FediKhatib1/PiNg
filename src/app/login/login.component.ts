@@ -8,8 +8,6 @@ import {UserLogin} from "../dto/user-login";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {User} from "../model/user";
 import {HeaderType} from "../enum/header-type.enum";
-import { UserService } from '../services/user.service';
-import { Role } from '../enum/role.enum';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +18,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public showLoading: boolean;
   private subscriptions: Subscription[] = [];
-  public user:any;
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
@@ -45,11 +42,8 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.authenticationService.saveToken(token!);
 
           this.authenticationService.addUserToLocalStorage(response.body!);
-          
-          if(this.authenticationService.isLoggedUserHasRoleAdmin())
-          {this.router.navigateByUrl('/admin');}
-          else
-          this.router.navigateByUrl('/admin');
+
+          this.router.navigateByUrl('/landing');
           this.showLoading = false;
         },
         (errorResponse: HttpErrorResponse) => {
