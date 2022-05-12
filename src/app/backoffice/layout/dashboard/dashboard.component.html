@@ -1,0 +1,32 @@
+
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <table class="table table-bordered" >
+                <thead>
+                <th scope="col">Id</th>
+                <th scope="col">Email</th>
+                </thead>
+                <tbody>
+                <tr *ngFor="let blocks of blockList">
+                    <td>{{blocks.idBlock}}</td>
+                    <td>{{blocks.email}}</td>
+                    <td>
+                            <button class="btn btn-success"  (click)="unBlock(blocks.email)"  ><i class="fa fa-check-circle"> UnBLOCK</i></button>
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+            <mat-paginator [length]="100"
+                           [pageSize]="10"
+                           [pageSizeOptions]="[3, 9, 18, 50]"
+                           aria-label="Select page">
+            </mat-paginator>
+
+        </div>
+    </div>
+</div>
+

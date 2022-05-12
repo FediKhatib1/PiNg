@@ -1,0 +1,95 @@
+<main class="profile-page">
+    <section class="section-profile-cover section-shaped my-0">
+        <!-- Circles background -->
+        <div class="shape shape-style-1 shape-primary alpha-4">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- SVG separator -->
+        <div class="separator separator-bottom separator-skew">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="card card-profile shadow mt--300">
+                <div class="px-4">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 order-lg-2">
+                            <div class="card-profile-image">
+                                <a href="javascript:void(0)">
+                                    <img src="./assets/msn.png" class="rounded-circle">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-8 order-lg-1">
+                            <div class="card-profile-stats d-flex justify-content-center">
+                                <div>
+                                    <h1>Lets chat with your travel team  </h1>
+                                    <span class="description"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overflow-auto">
+                        <div class="chat-content" >
+                            <div class="card ">
+                                <ul class="list-group list-group-flush"  style="overflow: auto">
+                                    <li class="list-group-item" *ngFor="let chatMessage of webSocketService.chatMessages">
+                                        <strong>{{chatMessage.user}} : </strong>
+                                        <span>{{chatMessage.message}} </span>
+                                        <br>
+                                        <span>{{chatMessage.file}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-5 py-5 border-top text-center">
+                            <button class="btn btn-danger btn-lg btn-block" (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">Add emoji 😀</button>
+                            <br><emoji-mart class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
+                        </div>
+
+                        <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm"  >
+                            <div class="chat-send row">
+                                <div class="col-2">
+                                    <input type="text" class="form-control" name="user" id="input-user" ngModel="{{loggedInUser?.username}}"
+                                           placeholder="{{loggedInUser?.username}}" readonly>
+                                </div>
+                                <div class="col-8">
+                                    <textarea type="text" class="form-control" name="message" id="input-message" [(ngModel)]="message" ngModel> Write your message </textarea>
+                                </div>
+
+                                <div class="col-2">
+                                    <button type="submit" class="btn btn-primary" >Send</button>
+                                </div>
+                                <hr>
+
+                                <div class="col-8">
+                                    <label for="input-file">File input</label>
+                                    <input type="file" class="form-control-file" name="file" id="input-file" ngModel>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <hr>
+                    <div> <h1> </h1></div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+</main>
+

@@ -1,0 +1,11 @@
+<div id="sidebar">
+    <mat-nav-list>
+        <br>
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/admin/screen1']">
+            <mat-icon class="sidenav-icon">build</mat-icon> {{ 'COMPLAINT MANAGEMENT' | translate }}
+        </a>
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/admin/dashboard']">
+            <mat-icon class="sidenav-icon">people</mat-icon> {{ 'BLOCK LIST' | translate }}
+        </a>
+    </mat-nav-list>
+</div>

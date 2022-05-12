@@ -1,0 +1,120 @@
+<h1 class="heading-title"> complaint management</h1>
+<div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
+    <div fxFlex>
+        <app-stat [bgClass]="'success'" [icon]="'dashboard'" [count]="45" [label]="'number of complaints in this week!'"></app-stat>
+    </div>
+    <div fxFlex>
+        <app-stat [bgClass]="'info'" [icon]="'view_list'" [count]="12" [label]="'number of complaints in this month!'"></app-stat>
+    </div>
+</div>
+
+<hr>
+{{total}}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered" >
+    <thead>
+    <th scope="col">Id</th>
+    <th scope="col">Email</th>
+    <th scope="col">Type</th>
+    <th scope="col">Actions</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let reclam of reclamationList">
+        <td>{{reclam.idComplaint}}</td>
+        <td>{{reclam.email}}</td>
+        <td>{{reclam.type}}</td>
+        <td>
+            <div class="row">
+                <div class="col-md-7">
+                    <button class="btn btn-block btn-info" (click)="open(classic,'' , '')">
+                        Show more
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn" (click)="open(classic2,'' , '')"> <i class="fa fa-send"></i>
+                    </button>
+                </div>
+
+                <ng-template #classic let-c="close" let-d="dismiss" >
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="modal-title-default">Object of complaint : {{reclam.object}}</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{reclam.message}}  </p>
+                            <p> Best wishes .</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal" (click)="c('Close click')" >Close</button>
+                        </div>
+                    </div>
+                </ng-template>
+
+
+                <ng-template #classic2 let-c="close" let-d="dismiss" >
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="modal-title-default">Answer claim </h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <form class="contact-form" (submit)="sendEmail($event)" >
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 col-form-label col-form-label-sm">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="user_name" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 col-form-label col-form-label-sm">Message</label>
+                                    <div class="col-sm-10">
+                                        <textarea name="message"></textarea>
+                                    </div>
+                                </div>
+
+                            <div class="modal-footer">
+                                <input type="submit" value="Send 📩" (click)="d('Cross click')" >
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </ng-template>
+
+                <button class="btn btn-danger"  (click)="block(reclam.email)"  ><i class="fa fa-remove"></i></button>
+            </div>
+        </td>
+    </tr>
+
+    </tbody>
+
+
+</table>
+            <mat-paginator [length]="100"
+                           [pageSize]="10"
+                           [pageSizeOptions]="[3, 9, 18, 50]"
+                           aria-label="Select page">
+            </mat-paginator>
+
+        </div>
+    </div>
+</div>
+
+<div>
+    <div style="display: block">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+               >
+        </canvas>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+
+<hr>
+<br>
+    <mat-sidenav-container>
+        <mat-sidenav-content class="mat-drawer-content mat-sidenav-content sidenav-content" >
+            <div class="maincontent">
+                <router-outlet></router-outlet>
+                <app-chatpanel
+                        (selectedUsrEvt)="handleSelectedUser($event)"
+                        (messagesEvt)="handleMessages($event)"
+                        [sentMessage]="sentMessage">
+                </app-chatpanel>
+            </div>
+
+            <div class="bottom-spacer text-center">
+                <app-chatbox
+                        *ngIf="!isCloseChatBox"
+                        [selectedUser]="selectedUser"
+                        [messages]="messages"
+                        (isCloseChatBoxEvt)="handleCloseChatBox($event)"
+                        (sentMessageEvt)="handleSentMessage($event)">
+                </app-chatbox>
+            </div>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+
+

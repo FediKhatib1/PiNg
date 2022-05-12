@@ -1,0 +1,44 @@
+<main>
+    <div class="position-relative">
+        <!-- Hero for FREE version -->
+        <section class="section section-lg section-hero section-shaped">
+            <!-- Background circles -->
+            <div class="shape shape-style-1 shape-primary">
+                <span class="span-150"></span>
+                <span class="span-150"></span>
+                <span class="span-50"></span>
+                <span class="span-50"></span>
+                <span class="span-75"></span>
+                <span class="span-100"></span>
+                <span class="span-75"></span>
+                <span class="span-50"></span>
+                <span class="span-100"></span>
+                <span class="span-50"></span>
+                <span class="span-100"></span>
+            </div>
+            <div class="container shape-container d-flex align-items-center py-lg">
+                <div class="col px-0">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="container-fluid">
+                            <div class="row p-2">
+                                <button type="button" class="btn btn-outline-primary text-white" [disabled]="isCallStarted$ | async" (click)="showModal(false)">Start Call</button>
+                                <button type="button" class="btn btn-outline-primary text-white"  [disabled]="isCallStarted$ | async" (click)="showModal(true)">Join Call</button>
+                                <button type="button" class="btn btn-danger"  [disabled]="!(isCallStarted$ | async)" (click)="endCall()">End Call</button>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <div id="video-wrapper">
+                                        <video #remoteVideo id="remote-video" poster="./assets/video-placeholder.jpg" autoplay playsinline></video>
+                                        <video #localVideo id="local-video" autoplay playsinline [muted]=true></video>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+
