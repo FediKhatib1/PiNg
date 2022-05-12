@@ -1,0 +1,43 @@
+<div class="col-md-12" [hidden]="hidden">
+  <div id="map" leaflet >
+  </div>
+</div>
+<form #f="ngForm">
+<button class="btn btn-danger float-right" (click)="hideForm()"> Hide Map</button>
+<button class="btn btn-danger float-right" (click)="showForm()"> Show Map</button>
+
+<div class="input-group mb-3">
+<select class="form-select" aria-label="Default select example"  [(ngModel)]="event.eventType">
+  <option value="MEETING">Meeting</option>
+  <option value="ONPERSON">OnPerson</option>
+</select>
+
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="description" aria-label="description" aria-describedby="basic-addon1" [(ngModel)]="event.description">
+  </div>
+  </div>
+  <div class="input-group mb-3" [hidden]="!hidden">
+    <input type="text" class="form-control" placeholder="link" aria-label="link" aria-describedby="basic-addon2" [(ngModel)]="event.link" >
+    
+  </div>
+  
+  <div class="input-group mb-3">
+    <input type="date" class="form-control" placeholder="date" [(ngModel)]="event.date">
+  </div>
+    <button class="btn btn-success" (click)="add(event)" [disabled]="f.invalid
+    ">Add product</button>
+
+</form>
+<div class="row">
+  <div class="col-md-4" *ngFor="let ev of eventList , let i = index ">
+            <div class="card" style="width: 18rem;">
+         
+                <div class="card-body">
+                    <h5 class="card-title">ID :{{ev.idEvent}}</h5>
+                    <p class="card-text">Date :{{ev.date}}</p>
+                    <p class="card-text">Des :{{ev.description}}</p>
+                    <button class="btn btn-danger"(click)="delete(ev.idEvent)" >
+                        Delete</button>
+                </div>
+            </div>
+        </div>
