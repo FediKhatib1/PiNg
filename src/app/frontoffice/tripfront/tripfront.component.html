@@ -1,0 +1,112 @@
+<main class="profile-page">
+    <section class="section-profile-cover section-shaped my-0">
+        <!-- Circles background -->
+        <div class="shape shape-style-1 shape-primary alpha-4">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- SVG separator -->
+        <div class="separator separator-bottom separator-skew">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div >
+                <div >
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 order-lg-2">
+                            <div class="card-profile-image">
+                                <a href="javascript:void(0)">
+                                  
+                                </a>
+                            </div>
+                        </div>
+
+                      
+                    </div>
+                    <div class="container">
+                      <h3 class="h4 text-success font-weight-bold mb-4">My Trip Details</h3>
+                      <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                              <!-- Tabs with icons -->
+                              <div class="mb-3">
+                                <small class="text-uppercase font-weight-bold">Details</small>
+                              </div>
+                              <div class="custom-tab-content flex-column flex-md-row">
+                                <ul ngbNav #nav="ngbNav" [(activeId)]="active1" class="nav nav-pills justify-content-center" type="pills">
+                                  <li class="nav-item" [ngbNavItem]="1">
+                                    <a class="nav-link" ngbNavLink><i class="ni ni-cloud-upload-96 mr-2"></i> Trip</a>
+                                    <ng-template ngbNavContent>
+                                      <div class="tab-content">
+                                        <p class="description">Your destination :{{trip.destination}}</p>
+                                        <p class="description">Trip program : {{trip.program}}</p>
+                                      </div>
+                                    </ng-template>
+                                  </li>
+                                  <li class="nav-item" [ngbNavItem]="2">
+                                    <a class="nav-link" ngbNavLink>
+                                      <i class="ni ni-bell-55 mr-2"></i> Deatils
+                                    </a>
+                                    <ng-template ngbNavContent>
+                                      <div class="tab-content">
+                                        <p class="description">Departure Date :{{trip.departureDate}} </p>
+                                        <p class="description">Arrival DateDate :{{trip.arrivalDate}} </p>
+                                        <p class="description">Object :{{trip.object}} </p>
+                                        <p class="description">Program :{{trip.program}} </p>
+                                        
+                                      </div>
+                                    </ng-template>
+                                  </li>
+                                  <li class="nav-item" [ngbNavItem]="3">
+                                    <a class="nav-link" ngbNavLink>
+                                      <i class="ni ni-calendar-grid-58 mr-2"></i> Partner
+                                    </a>
+                                    <ng-template ngbNavContent>
+                                      <div class="tab-content">
+                                        <p class="description">{{partner}}</p>
+                                      </div>
+                                    </ng-template>
+                                  </li>
+                                </ul>
+                              </div>
+                        
+                              <div [ngbNavOutlet]="nav" class="custom-tab-content"></div>
+                        </div>
+                       
+                        <div class="col-lg-6 mt-5 mt-lg-0">
+                          <!-- Menu -->
+                          <div class="mb-3">
+                            <small class="text-uppercase font-weight-bold">Invitation</small>
+                          </div>
+                          <div  class="custom-tab-content flex-column flex-md-row">
+                            <ul ngbNav #nav1="ngbNav" [(activeId)]="active" class="nav nav-pills justify-content-center" type="pills">
+                              <li class="nav-item" [ngbNavItem]="1">
+                                <a class="nav-link" ngbNavLink> Accept/Refuse</a>
+                                <ng-template ngbNavContent>
+                                  <div class="tab-content">
+                                  <button (click)="accept()">Accept</button>
+                                  <button (click)="refuse()">Refuse</button>
+                                  <button (click)="send(trip.idTrip)">Send</button>
+                                  </div>
+                                </ng-template>
+                              </li>
+                             
+                          
+                            </ul>
+                          </div>
+                          <div [ngbNavOutlet]="nav1" class="custom-tab-content"></div>
+                        </div>
+                      </div>
+
+
+
+   
+
